@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 import java.sql.Date;
 import java.util.List;
 
+
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,10 +22,10 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer cartId;
-    List<Integer> listOfProductId;
-    Date cartDate;
-    int cartQuantity;
-    double totalAmount;
+    private Integer cartId;
+    private List<Integer> listOfProduct;
+    private Date cartDate;
+    private int cartQuantity;
+    private double totalAmount;
 
 }

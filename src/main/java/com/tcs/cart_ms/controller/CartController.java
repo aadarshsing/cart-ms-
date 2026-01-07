@@ -1,6 +1,7 @@
 package com.tcs.cart_ms.controller;
 
 
+import com.tcs.cart_ms.dto.CartProduct;
 import com.tcs.cart_ms.entity.Cart;
 import com.tcs.cart_ms.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,8 @@ public class CartController {
         }
     }
     @PostMapping
-    public ResponseEntity saveProduct( @RequestBody Cart cart){
-        cartService.save(cart);
+    public ResponseEntity saveProduct( @RequestBody CartProduct cartProduct){
+        cartService.save(cartProduct);
         return new ResponseEntity(HttpStatus.CREATED);
 
     }
@@ -50,7 +51,7 @@ public class CartController {
         Cart existingCart = cartService.findProductById(id);
 
         if(existingCart != null){
-            cartService.save(cart);
+            cartService.updateCart(cart);
             return new ResponseEntity(HttpStatus.OK);
         }
         else{
